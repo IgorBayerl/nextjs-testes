@@ -69,7 +69,7 @@ const QuadradoFundoInicio = styled.div`
     right: 13rem;
     
     height:50rem;
-    /* width:100vw; */
+    width:97vw;
     @media (max-width: 768px) {
         position: absolute;
         height: 35rem;
