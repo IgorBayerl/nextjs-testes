@@ -15,7 +15,7 @@ export default function About() {
       </Head>
       <Navbar/>
       <h1>About</h1>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }

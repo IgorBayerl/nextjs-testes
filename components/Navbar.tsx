@@ -35,10 +35,10 @@ export default function Navbar(){
                     <MenuContainerDiv>
                         {/* <Fundo/> */}
                         <Link href="/about" passHref>
-                            <MenuLink >About</MenuLink>
+                            <MenuLink >Aplicativo</MenuLink>
                         </Link>
                         <Link href="/" passHref>
-                            <MenuLink >Our Work</MenuLink>
+                            <MenuLink >Restaurantes</MenuLink>
                         </Link>
                     </MenuContainerDiv>
                     <Link href="">
@@ -57,7 +57,7 @@ const Hamburger = styled.div`
     span {
         height: 2px;
         width: 25px;
-        background: #7b7fda;
+        background: #1C8676;
         margin-bottom: 4px;
         border-radius: 5px;
     }
@@ -105,11 +105,17 @@ const Nav = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background: red;
+    /* background: red; */
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
+    @media (max-width: 768px) {
+        padding: 0 0;
+        background: white;
+        width:100%;
+        box-shadow: 0px 5px 5px #ececec;
+    }
 `;
 
 const NavContent = styled.div`
@@ -123,6 +129,9 @@ const NavContent = styled.div`
     top: 0;
     left: 0;
     right: 0;
+    @media (max-width: 768px) {
+        padding: 0 2rem;
+    }
 `
 
 const LogoLink = styled.a`
