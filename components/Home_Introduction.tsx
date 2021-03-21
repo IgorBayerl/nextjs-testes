@@ -64,6 +64,7 @@ const QuadradoFundoInicio = styled.div`
     position: relative;
     background-color: white;
     border-bottom-right-radius: 70px;
+    border-bottom-left-radius: 70px;
     top: -100px;
     display: flex;
     right: 13rem;
