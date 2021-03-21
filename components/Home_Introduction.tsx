@@ -57,7 +57,7 @@ export default function Introduction(){
 
 
 const ContainerMaster = styled.div`
-    /* background-color: red; */
+    background-color: red;
 `
 
 const QuadradoFundoInicio = styled.div`
@@ -67,9 +67,9 @@ const QuadradoFundoInicio = styled.div`
     top: -100px;
     display: flex;
     right: 13rem;
-    
+    margin-left: -10rem;
     height:50rem;
-    width:97vw;
+    /* width:90vw; */
     @media (max-width: 768px) {
         position: absolute;
         height: 35rem;
