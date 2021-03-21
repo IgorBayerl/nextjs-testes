@@ -57,7 +57,7 @@ export default function Introduction(){
 
 
 const ContainerMaster = styled.div`
-    background-color: red;
+    /* background-color: red; */
 `
 
 const QuadradoFundoInicio = styled.div`
