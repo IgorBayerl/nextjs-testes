@@ -27,7 +27,6 @@ export default function Home() {
         <ShareIt/>
         {/* <Discounts/> */}
         <Informations/>
-        {/* <Customers/> */}
         {/* <Discounts/> */}
       </BaseLayout>
     </div>

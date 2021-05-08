@@ -63,6 +63,14 @@ export const BeforeImageContainer = styled.div`
   /* background-color:  red; */
   height: 30em;
   
+  @media(max-width:1200px) {
+    padding: 2rem 0 3rem 0;
+    height: fit-content;
+    
+  } 
+
+
+  
   
 `;
 export const StoreLinkButtonsContainer = styled.div`

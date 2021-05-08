@@ -19,6 +19,22 @@ export default function AllInYourHand() {
     arrows: false,
     responsive: [
       {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          autoplay: true,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          autoplay: true,
+        },
+      },
+      {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,

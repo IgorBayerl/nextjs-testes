@@ -20,29 +20,39 @@ export default function ShareIt() {
               
               <Row className="justify-content-center align-items-center  mt-lg-5">
                 
-                <Col xs={12} md={12} lg={6} xl={6} className="d-flex flex-column justify-content-between">
+                <Col xs={12} md={12} lg={4} xl={6} className="d-flex flex-column justify-content-between">
                   
                   <BigContainerLeft className="d-none d-lg-block">
                     
                   </BigContainerLeft>
                   <SmallContainerLeft>
                     <Col xs="auto align-middle  mt-5">
-                      <Subtitle className="text-center">
+                      {/* <Subtitle className="text-center">
                         <span className="text-center color-secondary ">Compartilhe a conta</span>
                       </Subtitle>
                       <p className="name color-secondary text-size-md text-center text-sm-left ">
                       Acabaram-se os problemas na hora de pagar. Com yoomy, além de dividir cada momento com seus amigos e familiares, você pode dividir também a conta
-                      </p>
+                      </p> */}
                         
+                      <Subtitle>
+                        <span className="color-secondary">Compartilhe a conta</span>
+                      </Subtitle>
+                      <Row>
+                        <Col lg={10} xl={7}>
+                          <p className="text-size-md color-secondary semi-bold text-informations pt-2 pt-lg-5">
+                          Acabaram-se os problemas na hora de pagar. Com yoomy, além de dividir cada momento com seus amigos e familiares, você pode dividir também a conta.
+                          </p>
+                        </Col>
+                      </Row>
                     </Col>
                   </SmallContainerLeft>
                   <BigContainerLeft className="d-none d-lg-block">
-                    <Col className="justify-content-center align-items-center  ml-3">
+                    <Col className="justify-content-center align-items-center  ">
                       <img src="/images/pratoYoomyShare.png" alt="Mc" className="img-fluid" />
                     </Col>
                   </BigContainerLeft>
                 </Col>
-                <Col xs={12} md={12} lg={6} xl={6} className="">
+                <Col xs={12} md={12} lg={8} xl={6} className="ml-0">
                   <SmallContainerRight className="d-none d-lg-block">
                     <Col className="d-none d-lg-block">
                       <img src="/images/padronagem-promotions.png" alt="Mc" className="img-fluid" />
@@ -64,13 +74,9 @@ export default function ShareIt() {
                       </Row>
                         
                     </Col>
-                      <Col className="d-block d-lg-none justify-content-center align-items-center  ml-3">
-                        <img src="/images/pratoYoomyShare.png" alt="Mc" className="img-fluid" />
-                      </Col>
-                  </BigContainerRight>
-                  <SmallContainerRight className="d-none d-lg-block">
                     
-                  </SmallContainerRight>
+                  </BigContainerRight>
+                  
                  
                 
                 </Col>
