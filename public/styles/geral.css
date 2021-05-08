@@ -2,6 +2,7 @@
 
 body {
   margin: 0 !important;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -82,4 +83,9 @@ body::-webkit-scrollbar-thumb {
   border-radius: 2px;
   background-color:  var(--color-primary);
   cursor: pointer;
+}
+
+.backgroundPrimary{
+  background-color:  var(--color-primary);
+  border-radius: 10px;
 }

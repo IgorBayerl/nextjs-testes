@@ -1,20 +1,21 @@
 import React from 'react';
-import {Col, Row} from 'react-bootstrap';
+import { Col, Row, Card } from 'react-bootstrap';
 import Slider from "react-slick";
 
 // Components
 import Title from '../Title';
+import Subtitle from '../../Subtitle';
 
 // Style
-import {BoxContent} from './styles';
+import {BoxContent, RestaurantCardContainer , RestaurantCardContainer2} from './styles';
 
-export default function Advantages() {
+export default function AllInYourHand() {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToShow: 6,
+    slidesToScroll: 6,
     arrows: false,
     responsive: [
       {
@@ -42,142 +43,67 @@ export default function Advantages() {
         <Col xs={12}>
           <Row className="justify-content-center">
             <Col xs={12} lg={11}>
-              <Row className="align-items-center justify-content-center">
-                <Col xs={12} lg={6} className="d-none d-xl-block">
-                  <img src="/images/img-dish.png" alt="Gratuito" className="img-fluid" />
-                </Col>
-                <Col xs={12} lg={9} xl={6}>
-                  <p className="color-light semi-bold subtitle-white">Tudo isso e muito mais</p>
-                  <Row>
-                    <Col xs="auto">
-                      <Title>
-                        GRATUITO
-                      </Title>
+            <Subtitle textAlign="center">
+                <span className="color-light">Descubra os melhores restaurantes na sua região</span>
+              </Subtitle>
+              <Row className="justify-content-center pt-5 mt-lg-5">
+                <Col xs={12}>
+                  <Slider {...settings}>
+                    <Col xs={12}>
+                      <RestaurantCardContainer>
+
+                        <div className="justify-content-center">
+                          <img src="/images/subwaycol.png" alt="Download" className="img-fluid" />
+                        </div>
+                        <p className="text-size-md  font-weight-bold title-box-highlight ">Subway</p>
+                      </RestaurantCardContainer>
                     </Col>
-                  </Row>
-                  <Row>
-                    <Col lg={8} xl={7}>
-                      <p className="color-light text-size-md semi-bold pt-4">Sem pagar nada, além disso trazemos benefícios ao seu negócio como:</p>
+                    <Col xs={12}>
+                      <RestaurantCardContainer2>
+
+                        <div className="justify-content-center">
+                          <img src="/images/Mccol.png" alt="Download" className="img-fluid" />
+                        </div>
+                        <p className="text-size-md  font-weight-bold title-box-highlight ">Subway</p>
+                      </RestaurantCardContainer2>
                     </Col>
-                  </Row>
-                  <Row>
-                    <Col xs={12} className="d-md-none">
-                      <Slider {...settings}>
-                        <Col xs={12} className="py-3">
-                          <div className=" box-info">
-                            <Row className="align-items-center justify-content-center">
-                              <Col xs="auto" className="pr-0">
-                                <div className="icon">
-                                  <img src="/images/icon-megaphone.png" alt="Marketing" className="img-fluid" />
-                                </div>
-                              </Col>
-                              <Col>
-                                <p className="color-secondary text-size-md font-weight-bold mb-0">Marketing</p>
-                              </Col>
-                            </Row>
-                          </div>
-                        </Col>
-                        <Col xs={12} className="py-3">
-                          <div className=" box-info">
-                            <Row className="align-items-center justify-content-center">
-                              <Col xs="auto" className="pr-0">
-                                <div className="icon">
-                                  <img src="/images/icon-ticket.png" alt="Ticket" className="img-fluid" />
-                                </div>
-                              </Col>
-                              <Col>
-                                <p className="color-secondary text-size-md font-weight-bold mb-0">Aumento do ticket médio</p>
-                              </Col>
-                            </Row>
-                          </div>
-                        </Col>
-                        <Col xs={12} className="py-3">
-                          <div className=" box-info">
-                            <Row className="align-items-center justify-content-center">
-                              <Col xs="auto" className="pr-0">
-                                <div className="icon">
-                                  <img src="/images/icon-walking.png" alt="Redução de filas" className="img-fluid" />
-                                </div>
-                              </Col>
-                              <Col>
-                                <p className="color-secondary text-size-md font-weight-bold mb-0">Redução de filas</p>
-                              </Col>
-                            </Row>
-                          </div>
-                        </Col>
-                        <Col xs={12} className="py-3">
-                          <div className=" box-info">
-                            <Row className="align-items-center justify-content-center">
-                              <Col xs="auto" className="pr-0">
-                                <div className="icon">
-                                  <img src="/images/icon-envira.png" alt="Higiene" className="img-fluid" />
-                                </div>
-                              </Col>
-                              <Col>
-                                <p className="color-secondary text-size-md font-weight-bold mb-0">Higiene e sustentabilidade</p>
-                              </Col>
-                            </Row>
-                          </div>
-                        </Col>
-                      </Slider>
+                    <Col xs={12}>
+                      <RestaurantCardContainer>
+
+                        <div className="justify-content-center">
+                          <img src="/images/subwaycol.png" alt="Download" className="img-fluid" />
+                        </div>
+                        <p className="text-size-md  font-weight-bold title-box-highlight ">Subway</p>
+                      </RestaurantCardContainer>
                     </Col>
-                    <Col xs={12} md={6} className="py-3 d-none d-md-block">
-                      <div className=" box-info">
-                        <Row className="align-items-center justify-content-center">
-                          <Col xs="auto" className="pr-0">
-                            <div className="icon">
-                              <img src="/images/icon-megaphone.png" alt="Marketing" className="img-fluid" />
-                            </div>
-                          </Col>
-                          <Col>
-                            <p className="color-secondary text-size-md font-weight-bold mb-0">Marketing</p>
-                          </Col>
-                        </Row>
-                      </div>
+                    <Col xs={12}>
+                      <RestaurantCardContainer2>
+
+                        <div className="justify-content-center">
+                          <img src="/images/Mccol.png" alt="Download" className="img-fluid" />
+                        </div>
+                        <p className="text-size-md  font-weight-bold title-box-highlight ">Subway</p>
+                      </RestaurantCardContainer2>
                     </Col>
-                    <Col xs={12} md={6} className="py-3 d-none d-md-block">
-                      <div className=" box-info">
-                        <Row className="align-items-center justify-content-center">
-                          <Col xs="auto" className="pr-0">
-                            <div className="icon">
-                              <img src="/images/icon-ticket.png" alt="Ticket" className="img-fluid" />
-                            </div>
-                          </Col>
-                          <Col>
-                            <p className="color-secondary text-size-md font-weight-bold mb-0">Aumento do ticket médio</p>
-                          </Col>
-                        </Row>
-                      </div>
+                    <Col xs={12}>
+                      <RestaurantCardContainer>
+
+                        <div className="justify-content-center">
+                          <img src="/images/subwaycol.png" alt="Download" className="img-fluid" />
+                        </div>
+                        <p className="text-size-md  font-weight-bold title-box-highlight ">Subway</p>
+                      </RestaurantCardContainer>
                     </Col>
-                    <Col xs={12} md={6} className="py-3 d-none d-md-block">
-                      <div className=" box-info">
-                        <Row className="align-items-center justify-content-center">
-                          <Col xs="auto" className="pr-0">
-                            <div className="icon">
-                              <img src="/images/icon-walking.png" alt="Redução de filas" className="img-fluid" />
-                            </div>
-                          </Col>
-                          <Col>
-                            <p className="color-secondary text-size-md font-weight-bold mb-0">Redução de filas</p>
-                          </Col>
-                        </Row>
-                      </div>
+                    <Col xs={12}>
+                      <RestaurantCardContainer2>
+
+                        <div className="justify-content-center">
+                          <img src="/images/Mccol.png" alt="Download" className="img-fluid" />
+                        </div>
+                        <p className="text-size-md  font-weight-bold title-box-highlight ">Subway</p>
+                      </RestaurantCardContainer2>
                     </Col>
-                    <Col xs={12} md={6} className="py-3 d-none d-md-block">
-                      <div className=" box-info">
-                        <Row className="align-items-center justify-content-center">
-                          <Col xs="auto" className="pr-0">
-                            <div className="icon">
-                              <img src="/images/icon-envira.png" alt="Higiene" className="img-fluid" />
-                            </div>
-                          </Col>
-                          <Col>
-                            <p className="color-secondary text-size-md font-weight-bold mb-0">Higiene e sustentabilidade</p>
-                          </Col>
-                        </Row>
-                      </div>
-                    </Col>
-                  </Row>
+                  </Slider>
                 </Col>
               </Row>
             </Col>

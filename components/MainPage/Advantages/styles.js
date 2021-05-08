@@ -71,3 +71,82 @@ export const BoxContent = styled.div`
     }
   }
 `;
+
+
+export const RestaurantCardContainer = styled.div`
+  
+  background-color: #038D42;
+  /* #E20514 */
+
+  height: 15em;
+  width: 15em;
+  border-radius: 10px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  div{
+    /* background-color: red; */
+    display: flex;
+    flex:1;
+    padding: 0.3em;
+  }
+  p{
+    margin: 0;
+    margin-top: 0.3em;
+    /* font-size: 20px;
+    text-align: left;
+    width: 100%; */
+    padding: 0;
+    color: white;
+    font-weight: bold;
+  }
+
+  img{
+    
+    object-fit: contain;
+  }
+
+  
+`;
+
+export const RestaurantCardContainer2 = styled.div`
+  
+  background-color: #E20514;
+  /* #E20514 */
+  /* margin-left:2px;
+  margin-right:2px; */
+
+  height: 15em;
+  width: 15em;
+  border-radius: 10px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  div{
+    /* background-color: red; */
+    display: flex;
+    flex:1;
+    padding: 0.3em;
+  }
+  p{
+    margin: 0;
+    margin-top: 0.3em;
+    /* font-size: 20px;
+    text-align: left;
+    width: 100%; */
+    padding: 0;
+    color: white;
+    font-weight: bold;
+  }
+
+  img{
+    
+    object-fit: contain;
+  }
+
+  
+`;
