@@ -1,5 +1,7 @@
-import React, { useRef, useState, Suspense } from 'react'
-import { Canvas, useFrame } from 'react-three-fiber'
+import React, { useRef, useState, Suspense } from 'react';
+import { Canvas, useFrame } from 'react-three-fiber';
+import BaseLayout from '../components/BaseLayout';
+import Card from '../components/Section/Card'
 
 const Box = props => {
   const mesh = useRef()
@@ -27,20 +29,43 @@ const Box = props => {
   )
 }
 
-const BirdsPage = () => {
-  return [
-    <h1>Click on me - Hover me :)</h1>,
-    <Canvas camera={{ position: [0, 0, 35] }}>
+
+function Content(){
+  return(
+    <>
+      <h1>Hellooo</h1>
+      <Card/>
+      <Card/>
+      <Card/>
+    </>
+  );
+}
+
+function Bg(){
+  return(
+    <Canvas  camera={{ position: [0, 0, 38] }}>
       <ambientLight intensity={2} />
       <pointLight position={[40, 40, 40]} />
       <Suspense fallback={null}>
         <Box position={[10, 0, 0]} />
+        <Box position={[-10, 0, -10]} />
         <Box position={[-10, 0, 0]} />
+        <Box position={[-10, 10, 0]} />
         <Box position={[0, 10, 0]} />
         <Box position={[0, -10, 0]} />
+        <Box position={[-10, -10, 0]} />
       </Suspense>
-    </Canvas>,
-  ]
+    </Canvas>
+  );
+}
+const Boxes = () => {
+  return (
+    <BaseLayout 
+    content={ <Content/> }
+    bg={ <Bg/> }
+    />
+  )
 }
 
-export default BirdsPage
+
+export default Boxes
