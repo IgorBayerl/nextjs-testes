@@ -18,6 +18,7 @@ export default class MyApp extends App {
         <meta name="description" content="Igor Bayerl - Portfolio"></meta>
         <meta name="keywords" content="HTML, CSS, JavaScript, TypeScript, Next.Js, React.JS , Node.js, Website, FrontEnd, Portfolio, Backend, FullStack"></meta>
         <meta name="author" content="Igor Bayerl"></meta>
+        
       </Head>
       <Component {...pageProps} />
       </>

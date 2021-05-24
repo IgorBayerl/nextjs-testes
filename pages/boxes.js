@@ -1,7 +1,10 @@
-import React, { useRef, useState, Suspense } from 'react';
+import React, { useRef, useState, Suspense, useEffect } from 'react';
 import { Canvas, useFrame } from 'react-three-fiber';
 import BaseLayout from '../components/BaseLayout';
-import Card from '../components/Section/Card'
+import Card from '../components/Section/Card';
+import Section from '../components/Section/Section';
+import FirstPart from '../components/Content/FirstPart';
+
 
 const Box = props => {
   const mesh = useRef()
@@ -30,13 +33,26 @@ const Box = props => {
 }
 
 
+
+
+
 function Content(){
   return(
     <>
-      <h1>Hellooo</h1>
-      <Card/>
-      <Card/>
-      <Card/>
+      <FirstPart/>
+      <Section>
+        <Card>
+          <h2>
+            Projects
+          </h2>
+        </Card>
+        <Card>
+          <h2>
+            Skills
+          </h2>
+        </Card>
+      </Section>
+      
     </>
   );
 }
@@ -59,6 +75,8 @@ function Bg(){
   );
 }
 const Boxes = () => {
+
+  
   return (
     <BaseLayout 
     content={ <Content/> }

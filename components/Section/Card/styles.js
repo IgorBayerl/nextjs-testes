@@ -8,6 +8,9 @@ export const CardContainer = styled.div`
   width: 70em;
   margin: 2em;
   pointer-events: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const CardContent = styled.div`
@@ -17,5 +20,12 @@ export const CardContent = styled.div`
   position: absolute;
   pointer-events: none;
 `;
+
+export const LeftArrowDownContainer = styled.div`
+  width: 10% !important;
+  height: 100%;
+  background-color: green;
+`;
+
 
 

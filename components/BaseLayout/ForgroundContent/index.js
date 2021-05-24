@@ -1,11 +1,13 @@
 //// Style
-import {FgContent } from './styles';
+import {FgContent, Limiter } from './styles';
 
 
 export default function ForgroundContent({children}) {
     return (
         <FgContent>
-            {children}
+            <Limiter>
+                {children}
+            </Limiter>
         </FgContent>
     )
 }

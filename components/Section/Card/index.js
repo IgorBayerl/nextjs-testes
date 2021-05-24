@@ -1,11 +1,20 @@
 //// Style
-import {CardContainer, CardContent } from './styles';
+import {CardContainer, CardContent , LeftArrowDownContainer} from './styles';
 
 
-export default function Card({children}) {
+export default function Card({children, title, bigTitle, mainContent, beforeContent, afterContent}) {
     return (
         <CardContainer>
-            <h1>ALOOOO</h1>
+            <LeftArrowDownContainer>
+                <h1>--------</h1>
+            </LeftArrowDownContainer>
+            <div>
+                {beforeContent}
+                <h1>{bigTitle}</h1>
+                {mainContent}
+                {children}
+                {afterContent}
+            </div>
         </CardContainer>
     )
 }
