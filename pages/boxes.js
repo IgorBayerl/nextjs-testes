@@ -9,6 +9,22 @@ import FirstPart from '../components/Content/FirstPart';
 const Box = props => {
   const mesh = useRef()
 
+  useEffect(() => {
+    onStart();
+  });
+
+  function onStart(){
+    window.addEventListener('scroll', updateCamera);
+
+  }
+
+  function updateCamera(ev) {
+    console.log()
+    // let div1 = document.getElementById("div1");
+    // camera.position.x = 10 - window.scrollY / 500.0;
+    // camera.position.z = 10 - window.scrollY / 500.0;
+  }
+
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
 
