@@ -3,14 +3,20 @@ import styled from 'styled-components';
 
 
 export const CardContainer = styled.div`
-  background-color: red;
-  height: 30em;
+  /* background-color: red; */
+  /* height: 30em; */
+  min-height: 20em;
+  height: fit-content;
   width: 70em;
+  max-width: 80vw;
+  /* font-size: inherit; */
   margin: 2em;
-  pointer-events: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  
+
 `;
 
 export const CardContent = styled.div`
@@ -22,9 +28,41 @@ export const CardContent = styled.div`
 `;
 
 export const LeftArrowDownContainer = styled.div`
-  width: 10% !important;
+  /* width: 10% !important; */
+  /* width: 20px !important; */
+  margin-right: 40px;
+  /* height: 100%; */
+  /* background-color: green; */
+`;
+
+export const ArrowLine = styled.div`
+  border-left: 1px solid;
+  border-color: #dedede;
   height: 100%;
-  background-color: green;
+  min-height: 20em;
+  /* box-shadow: 1px 0 0 0px #dedede inset; */
+  transform: translateX(+50%);
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  div{
+    position: absolute;
+    padding: 5px;
+    box-shadow: 1px -1px 0 0.5px #dedede inset;
+    border: solid transparent;
+    border-width: 0 0 1px 1px;
+    transform: translateX(calc(-50% - 0.5px)) translateY(55%) rotate(-45deg);
+    /* transform: ; */
+  }
+`;
+
+
+export const RightContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  
 `;
 
 

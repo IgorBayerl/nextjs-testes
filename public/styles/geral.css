@@ -150,3 +150,9 @@ body::-webkit-scrollbar-thumb {
   pointer-events: none;
   mix-blend-mode: difference;
 } */
+
+/* .bloob{ */
+  
+  /* filter: url(#gooey); */
+  /* filter: blur(10px) grayscale(10%); */
+/* } */

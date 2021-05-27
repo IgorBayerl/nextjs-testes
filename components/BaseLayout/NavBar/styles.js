@@ -16,12 +16,21 @@ export const RightNavbar = styled.div`
 export const NavLinks = styled.a`
   color: white;
   writing-mode: vertical-lr;
-  padding: 10px;
+  transform: rotateZ(180deg);
+  /* margin: -20px; */
+  padding: 10px 5px ;
   transition: all 0.25s;
   text-decoration: none;
   cursor: pointer;
+  /* background-color: #de2424; */
+  border-radius: 20px;
   :hover{
     text-decoration: none;
     color: black;
+    background-color: blue;
+    color: white;
+    /* transform: rotateZ(200deg); */
   }
+
+
 `;
