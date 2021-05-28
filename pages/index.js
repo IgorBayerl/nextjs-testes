@@ -8,21 +8,12 @@ import FirstPart from '../components/Content/FirstPart';
 
 const Box = props => {
 
-  
-
   const mesh = useRef()
-
-  function updateCamera(ev) {
-    console.log()
-    // let div1 = document.getElementById("div1");
-    // camera.position.x = 10 - window.scrollY / 500.0;
-    // camera.position.z = 10 - window.scrollY / 500.0;
-  }
 
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
 
-  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.00))
+  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
 
   return (
     <mesh
@@ -71,40 +62,36 @@ function Content(){
 }
 
 function Rig() {
-  const { camera, mouse } = useThree()
-  const vec = new THREE.Vector3()
-  return useFrame(() => camera.position.lerp(vec.set(mouse.x * 5, mouse.y * 5, camera.position.z), 0.2))
+
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    return (<></>)
+  }else{
+    const { camera, mouse } = useThree()
+    const vec = new THREE.Vector3()
+    return useFrame(() => camera.position.lerp(vec.set(mouse.x * 5, mouse.y * 5, camera.position.z), 0.2))
+
+  }
+
 }
 
 
+function MoveOnScroll() {
 
+  useLayoutEffect(() => console.log(window.pageYOffset), [])
+  
+  const { camera, mouse } = useThree()
+  const vec = new THREE.Vector3()
+  return useFrame(() => camera.position.lerp(vec.set(1, 1, window.pageYOffset/30), 0.5) )
+}
 
 
 
 function Bg(){
 
-  const [scrollOffset, setScrollOffset] = useState(0);
-
-
-  // console.log(scrollOffset);
-
   
 
-  useLayoutEffect(() => {
-    window.onscroll = () => {
-      setScrollOffset(window.pageYOffset)
-    }
-  });
-
-
-  function MoveOnScroll() {
-    const { camera, mouse } = useThree()
-    const vec = new THREE.Vector3()
-    return useFrame(() => camera.position.lerp(vec.set(1, 1, 10 + scrollOffset/80), 0.5))
-  }
-
   const cameraConfig = { 
-    position: [0, 0, 40 ],
+    position: [0, 0, 0 ],
     
   }
   

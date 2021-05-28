@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@react-three/drei": "^5.2.1",
     "@unform/core": "^2.1.6",
     "@unform/web": "^2.1.6",
     "bootstrap": "^4.6.0",

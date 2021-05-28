@@ -37,7 +37,7 @@ export default function Navbar() {
 
             </div>
             <div>
-                <NavLinks>
+                <NavLinks href="https://www.linkedin.com/in/igorbayerl/">
                     LinkedIn
                 </NavLinks>
                 <NavLinks>
@@ -46,7 +46,7 @@ export default function Navbar() {
                 <NavLinks>
                     Instagram
                 </NavLinks>
-                <NavLinks>
+                <NavLinks >
                     Facebook
                 </NavLinks>
 
