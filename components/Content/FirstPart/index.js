@@ -9,7 +9,7 @@ function MainContent(){
     return(
         <>
             <p>
-            Full-Stack Software Engineering
+            FullStack Software Engineer
             </p>
             
         </>

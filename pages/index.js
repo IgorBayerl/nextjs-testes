@@ -77,11 +77,13 @@ function Rig() {
 
 function MoveOnScroll() {
 
-  useLayoutEffect(() => console.log(window.pageYOffset), [])
+  // useLayoutEffect(() => console.log(window.pageYOffset), [])
   
   const { camera, mouse } = useThree()
   const vec = new THREE.Vector3()
   return useFrame(() => camera.position.lerp(vec.set(1, 1, window.pageYOffset/30), 0.5) )
+
+  
 }
 
 
