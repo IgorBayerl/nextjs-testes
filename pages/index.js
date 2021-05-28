@@ -1,22 +1,16 @@
-import React, { useRef, useState, Suspense, useEffect } from 'react';
-import { Canvas, useFrame } from 'react-three-fiber';
+import * as THREE from 'three';
+import React, { useRef, useState, Suspense , useLayoutEffect, useEffect } from 'react';
+import { Canvas, useFrame, useThree } from 'react-three-fiber';
 import BaseLayout from '../components/BaseLayout';
 import Card from '../components/Section/Card';
 import Section from '../components/Section/Section';
 import FirstPart from '../components/Content/FirstPart';
 
-
 const Box = props => {
+
+  
+
   const mesh = useRef()
-
-  useEffect(() => {
-    onStart();
-  });
-
-  function onStart(){
-    window.addEventListener('scroll', updateCamera);
-
-  }
 
   function updateCamera(ev) {
     console.log()
@@ -28,7 +22,7 @@ const Box = props => {
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
 
-  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
+  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.00))
 
   return (
     <mesh
@@ -53,6 +47,9 @@ const Box = props => {
 
 
 function Content(){
+
+  
+
   return(
     <>
       <FirstPart/>
@@ -73,9 +70,46 @@ function Content(){
   );
 }
 
+function Rig() {
+  const { camera, mouse } = useThree()
+  const vec = new THREE.Vector3()
+  return useFrame(() => camera.position.lerp(vec.set(mouse.x * 5, mouse.y * 5, camera.position.z), 0.2))
+}
+
+
+
+
+
+
 function Bg(){
+
+  const [scrollOffset, setScrollOffset] = useState(0);
+
+
+  // console.log(scrollOffset);
+
+  
+
+  useLayoutEffect(() => {
+    window.onscroll = () => {
+      setScrollOffset(window.pageYOffset)
+    }
+  });
+
+
+  function MoveOnScroll() {
+    const { camera, mouse } = useThree()
+    const vec = new THREE.Vector3()
+    return useFrame(() => camera.position.lerp(vec.set(1, 1, 10 + scrollOffset/80), 0.5))
+  }
+
+  const cameraConfig = { 
+    position: [0, 0, 40 ],
+    
+  }
+  
   return(
-    <Canvas  camera={{ position: [0, 0, 38] }}>
+    <Canvas  camera={cameraConfig}>
       <ambientLight intensity={2} />
       <pointLight position={[40, 40, 40]} />
       <Suspense fallback={null}>
@@ -87,6 +121,8 @@ function Bg(){
         <Box position={[0, -10, 0]} />
         <Box position={[-10, -10, 0]} />
       </Suspense>
+      <MoveOnScroll/>
+      <Rig />
     </Canvas>
   );
 }

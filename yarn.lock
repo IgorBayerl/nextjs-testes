@@ -2855,6 +2855,11 @@ react-slick@^0.28.1:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
+react-smooth-scrolling@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-smooth-scrolling/-/react-smooth-scrolling-1.0.2.tgz#6ce393c336412b8f2328e456c64fc2f49a2b77c7"
+  integrity sha512-AAkPQDLeVtLL92E0iyE86oj7ASSKE5L0mIqSeT19FXHT13/N+9Yxpf1VFKhN49BDJ60zE35nru0VjbDpmbDXNA==
+
 react-three-fiber@4.0.12:
   version "4.0.12"
   resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-4.0.12.tgz#b1a2da73137cea49af91dfd932da99587ebe6146"
@@ -2894,6 +2899,11 @@ react-use-measure@^2.0.0:
   integrity sha512-7K2HIGaPMl3Q9ZQiEVjen3tRXl4UDda8LiTPy/QxP8dP2rl5gPBhf7mMH6MVjjRNv3loU7sNzey/ycPNnHVTxQ==
   dependencies:
     debounce "^1.2.0"
+
+react-use-smooth-scroll@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-use-smooth-scroll/-/react-use-smooth-scroll-1.0.0.tgz#657b1d109114c3a7dba5434621316a3e9da70b98"
+  integrity sha512-PB5dqdmv4gwjvkkV649H4rSAVQvujk6yv8G+qWcjRHisltH03f4VRO6QveOECXXox5YPP+gCRALQGt3HlrUqZQ==
 
 react@17.0.1:
   version "17.0.1"

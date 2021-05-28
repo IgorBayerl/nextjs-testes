@@ -9,7 +9,7 @@ function MainContent(){
     return(
         <>
             <p>
-            Lorem ipsum dolor metus. Maecenas odio ante, viverra id dui tempus,pellentesque enim, at imperdiet elit.
+            Full-Stack Software Engineering
             </p>
             
         </>
