@@ -5,6 +5,7 @@ import BaseLayout from '../components/BaseLayout';
 import Card from '../components/Section/Card';
 import Section from '../components/Section/Section';
 import FirstPart from '../components/Content/FirstPart';
+import { useSpring, animated } from 'react-spring'
 
 const Box = props => {
 
@@ -13,7 +14,7 @@ const Box = props => {
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
 
-  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
+  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.00))
 
   return (
     <mesh
@@ -63,16 +64,43 @@ function Content(){
 
 function Rig() {
 
+  
+
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     return (<></>)
   }else{
     const { camera, mouse } = useThree()
     const vec = new THREE.Vector3()
-    return useFrame(() => camera.position.lerp(vec.set(mouse.x * 5, mouse.y * 5, camera.position.z), 0.2))
 
+    return useFrame(() => {
+      camera.position.lerp(vec.set( mouse.x * 20, mouse.y * 5, camera.position.z), 0.2)
+      camera.rotation.y = mouse.x / 5
+      // camera.rotation.y = Math.sin() 
+    })
+    return useFrame(() =>  camera.rotation.y = mouse.x / 5  )
+    // return useFrame(() =>  camera.rotation.y = rotation  )
   }
-
 }
+
+// function RigRotation() {
+
+//   const [active, setActive] = useState(false)
+//   const { rot } = useSpring({
+//     rotation: active ? [15, 0, 20] : [0, 0, 0],
+//   })
+
+//   const { camera, mouse } = useThree()
+//   const vec = new THREE.Vector3()
+
+//   return (
+//     <group>
+//       <animated.camera rotation={rot}>
+
+//       </animated.camera>
+//     </group>
+//   )
+  
+// }
 
 
 function MoveOnScroll() {
@@ -81,7 +109,7 @@ function MoveOnScroll() {
   
   const { camera, mouse } = useThree()
   const vec = new THREE.Vector3()
-  return useFrame(() => camera.position.lerp(vec.set(1, 1, window.pageYOffset/30), 0.5) )
+  return useFrame(() => camera.position.lerp(vec.set(1, 1, 10 + window.pageYOffset/30), 0.5) )
 
   
 }
@@ -111,7 +139,7 @@ function Bg(){
         <Box position={[-10, -10, 0]} />
       </Suspense>
       <MoveOnScroll/>
-      <Rig />
+      <Rig/>
     </Canvas>
   );
 }

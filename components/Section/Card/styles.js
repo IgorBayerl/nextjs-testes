@@ -65,5 +65,16 @@ export const RightContentContainer = styled.div`
   
 `;
 
+export const Title = styled.h1`
+  font-size: 6em;
+  padding-left: 40px;
+  /* pointer-events: auto; */
+`;
+export const MainContentContainer = styled.h1`
+  padding-left: 40px;
+`;
+
+
+
 
 

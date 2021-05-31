@@ -85,6 +85,11 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 
+
+.menuNavLinkSmall{
+  font-size: 13px;
+}
+
 /* .backgroundPrimary{
   background-color:  var(--color-primary);
   border-radius: 10px;

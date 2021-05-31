@@ -1,5 +1,5 @@
 //// Style
-import {CardContainer, CardContent , LeftArrowDownContainer , ArrowLine, RightContentContainer} from './styles';
+import {CardContainer, CardContent , LeftArrowDownContainer , ArrowLine, RightContentContainer , Title , MainContentContainer} from './styles';
 
 
 export default function Card({children, title, bigTitle, mainContent, beforeContent, afterContent}) {
@@ -12,8 +12,8 @@ export default function Card({children, title, bigTitle, mainContent, beforeCont
             </LeftArrowDownContainer>
             <RightContentContainer>
                 {beforeContent}
-                <h1>{bigTitle}</h1>
-                {mainContent}
+                <Title>{bigTitle}</Title>
+                <MainContentContainer>{mainContent}</MainContentContainer>
                 {children}
                 {afterContent}
             </RightContentContainer>

@@ -36,18 +36,16 @@ export default function Navbar() {
                 </svg>
 
             </div>
-            <div>
-                <NavLinks href="https://www.linkedin.com/in/igorbayerl/">
+            <div >
+                
+                <NavLinks className="menuNavLinkSmall" href="https://www.linkedin.com/in/igorbayerl/">
                     LinkedIn
                 </NavLinks>
-                <NavLinks>
+                <NavLinks className="menuNavLinkSmall">
+                    GitHub
+                </NavLinks>
+                <NavLinks className="menuNavLinkSmall" href="mailto:bayerl.igor@gmail.com">
                     Email
-                </NavLinks>
-                <NavLinks>
-                    Instagram
-                </NavLinks>
-                <NavLinks >
-                    Facebook
                 </NavLinks>
 
             </div>
