@@ -6,21 +6,48 @@ import Card from '../components/Section/Card';
 import Section from '../components/Section/Section';
 import FirstPart from '../components/Content/FirstPart';
 import { useSpring, animated } from 'react-spring'
+import useMeasure from "react-use-measure";
+import { form } from './../.next/cache/autodll-webpack-plugin/development_instance_0_7b9c09f646eac19eacf88e4296974e40/dll_d6a88dbe3071bd165157';
 
 const Box = props => {
+
+  
+  // api.start({ opacity: toggle ? 1 : 0 })
+  // function DivAnimatedSpringTest(){
+    
+    
+
+  //   return (
+  //     <animated.div className="pointerEventAuto" style={styles}>
+  //         i will fade
+  //         <button onClick={() => setToggle(0)} className="pointerEventAuto">Press</button>    
+  //     </animated.div>
+  //   );
+  // }
 
   const mesh = useRef()
 
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
+  // const [toggle, setToggle] = useState(false);
 
-  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.00))
+  const { scale } = useSpring({
+    scale: active ? [10, 10, 10] : [20, 20, 20],
+    form: {
+      scale:[20, 20, 20],
+    }
+  })
+
+  useFrame(() => {
+    (mesh.current.rotation.x = mesh.current.rotation.y += 0.00)
+  })
 
   return (
     <mesh
+      // as={animated.mesh}
       {...props}
       ref={mesh}
-      scale={active ? [6, 6, 6] : [5, 5, 5]}
+      scale={active ? [ 6, 6, 6 ] : [ 5, 5, 5 ]}
       onClick={e => setActive(!active)}
       onPointerOver={e => setHover(true)}
       onPointerOut={e => setHover(false)}
@@ -28,7 +55,7 @@ const Box = props => {
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <meshStandardMaterial
         attach="material"
-        color={hovered ? '#2b6c76' : '#720b23'}
+        color={hovered ? '#2b6c76' : '#de2424'}
       />
     </mesh>
   )
@@ -62,6 +89,22 @@ function Content(){
   );
 }
 
+const useMousePosition = () => {
+  const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+
+  const updateMousePosition = ev => {
+    setMousePosition({ x: ev.clientX, y: ev.clientY });
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+
+    return () => window.removeEventListener("mousemove", updateMousePosition);
+  }, []);
+
+  return mousePosition;
+};
+
 function Rig() {
 
   
@@ -69,8 +112,18 @@ function Rig() {
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     return (<></>)
   }else{
+
+
     const { camera, mouse } = useThree()
     const vec = new THREE.Vector3()
+
+    const mousePosition = useMousePosition();
+
+    // return useFrame(() => {
+    //   camera.position.lerp(vec.set( mousePosition.x/100   , mousePosition.y / 100, camera.position.z), 0.2)
+    //   // camera.rotation.y = mousePosition.x / 500
+    //   // camera.rotation.y = Math.sin() 
+    // })
 
     return useFrame(() => {
       camera.position.lerp(vec.set( mouse.x * 20, mouse.y * 5, camera.position.z), 0.2)
@@ -109,7 +162,7 @@ function MoveOnScroll() {
   
   const { camera, mouse } = useThree()
   const vec = new THREE.Vector3()
-  return useFrame(() => camera.position.lerp(vec.set(1, 1, 10 + window.pageYOffset/30), 0.5) )
+  return useFrame(() => camera.position.lerp(vec.set(1, 1, 1 + window.pageYOffset/30), 0.5) )
 
   
 }
@@ -126,12 +179,11 @@ function Bg(){
   }
   
   return(
-    <Canvas  camera={cameraConfig}>
+    <Canvas className="canvas" camera={cameraConfig}>
       <ambientLight intensity={2} />
       <pointLight position={[40, 40, 40]} />
       <Suspense fallback={null}>
         <Box position={[10, 0, 0]} />
-        <Box position={[-10, 0, -10]} />
         <Box position={[-10, 0, 0]} />
         <Box position={[-10, 10, 0]} />
         <Box position={[0, 10, 0]} />

@@ -23,6 +23,7 @@
     "react-spring": "^9.2.1",
     "react-three-fiber": "4.0.12",
     "react-toastify": "^7.0.3",
+    "react-use-measure": "^2.0.4",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
     "three": "0.112.1",

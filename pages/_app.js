@@ -13,11 +13,12 @@ export default class MyApp extends App {
         <link rel="icon" href="/images/favicon.png" />
         <link rel="stylesheet" type="text/css" href="/styles/geral.css" />
         <link rel="stylesheet" type="text/css" href="/styles/rc-select.css" />
-        <link rel="stylesheet" type="text/css" href="/styles/slick.mim.css" />
-        <link rel="stylesheet" type="text/css" href="/styles/slick-theme.mim.css" />
+        {/* <link rel="stylesheet" type="text/css" href="/styles/slick.mim.css" />
+        <link rel="stylesheet" type="text/css" href="/styles/slick-theme.mim.css" /> */}
         <meta name="description" content="Hi, I'm Igor. I'm a fullstack software engineer from Brazil. "></meta>
         <meta name="keywords" content="HTML, CSS, JavaScript, TypeScript, Next.Js, React.JS , Node.js, Website, FrontEnd, Portfolio, Backend, FullStack, Igor Bayerl, Igor, Bayerl, Software ,Developer"></meta>
         <meta name="author" content="Igor Bayerl"></meta>
+        <title>Igor Bayerl</title>
       </Head>
       <Component {...pageProps} />
       </>
