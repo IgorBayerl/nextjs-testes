@@ -6,8 +6,6 @@ import Card from '../components/Section/Card';
 import Section from '../components/Section/Section';
 import FirstPart from '../components/Content/FirstPart';
 import { useSpring, animated } from 'react-spring'
-import useMeasure from "react-use-measure";
-import { form } from './../.next/cache/autodll-webpack-plugin/development_instance_0_7b9c09f646eac19eacf88e4296974e40/dll_d6a88dbe3071bd165157';
 
 const Box = props => {
 

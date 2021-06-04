@@ -1,19 +1,10 @@
 ////Components
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Section from '../../Section/Section'
 import Card from '../../Section/Card'
-import { useTrail, useSpring, animated } from "react-spring";
 import AnimateRowRail from "../../Section/AnimatedRowRail";
 //// Style
 import {GradientLine , Row , Bolinha, ContentText} from './styles';
-
-
-
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 
 function BeforeContent(){
 
@@ -29,7 +20,7 @@ function BeforeContent(){
             />
             <AnimateRowRail
                 trailArray = {[
-                    <GradientLine hue={190} width={20} />,
+                    <GradientLine hue={190} width={22} />,
                     <GradientLine hue={240} width={1} />,
                     <GradientLine hue={82} width={6} />,
                 ]}
@@ -62,7 +53,6 @@ function MainContent(){
             <ContentText>
             FullStack Software Engineer
             </ContentText>
-            
         </>
     );
 }

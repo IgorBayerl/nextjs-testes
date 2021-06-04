@@ -25,7 +25,7 @@ export const GradientLine = styled.div`
   height: 1.2em;
   width: ${props => props.width + `em`};
   transition:all 0.3s ;
-  margin-right: 5px;
+  margin-right: 0.7rem;
   margin-bottom: 5px;
   margin-top: 5px;
   border-radius: 1px;
@@ -43,7 +43,7 @@ export const Bolinha = styled.div`
   );
   height: 1.2em;
   width: 1.2em;
-  margin-right: 5px;
+  margin-right: 0.7rem;
   margin-bottom: 5px;
   margin-top: 5px;
   border-radius: 0.6em;
