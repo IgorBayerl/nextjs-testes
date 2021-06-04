@@ -169,7 +169,6 @@ function MoveOnScroll() {
 
 function Bg(){
 
-  
 
   const cameraConfig = { 
     position: [0, 0, 0 ],

@@ -11,6 +11,9 @@ export const RightNavbar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media( max-width: 850px ) {
+    display: none;
+  }
 `;
 
 export const NavLinks = styled.a`

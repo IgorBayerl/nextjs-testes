@@ -32,6 +32,23 @@ export const GradientLine = styled.div`
   :hover{
     width: ${props => props.width + 1 + `em`};
   }
+  
+  @media (min-width: 481px ) and ( max-width: 850px ){
+    height: 1em;
+    width: ${props => (props.width > 4 ? props.width - 4 : props.width) + `em`};
+    margin-right: 0.5rem;
+    margin-bottom: 3px;
+    margin-top: 3px;
+  }
+  @media( max-width: 480px ) {
+    height: 0.6em;
+    width: ${props => (props.width - 8 ) + `em`};
+    display: ${props => (props.width > 18 ? `none` : `block`)};
+    margin-right: 0.2rem;
+    margin-bottom: 0.1rem;
+    margin-top: 0.1rem;
+  }
+  
 `;
 
 export const Bolinha = styled.div`
@@ -47,6 +64,20 @@ export const Bolinha = styled.div`
   margin-bottom: 5px;
   margin-top: 5px;
   border-radius: 0.6em;
+  @media( max-width: 850px ) {
+    height: 1em;
+    width: 1em;
+    margin-right: 0.5rem;
+    margin-bottom: 3px;
+    margin-top: 3px;
+  }
+  @media( max-width: 480px ) {
+    height: 0.6em;
+    width: 0.6em;
+    margin-right: 0.2rem;
+    margin-bottom: 0.1rem;
+    margin-top: 0.1rem;
+  }
 `;
 
 
@@ -57,5 +88,12 @@ export const Row = styled.div`
 
 export const ContentText = styled.p`
   font-size: 0.6em;
+
+  @media( max-width: 850px ) {
+    font-size: 0.5em;
+  }
+  @media( max-width: 480px ) {
+    font-size: 0.4em;
+  }
   /* pointer-events: auto; */
 `;

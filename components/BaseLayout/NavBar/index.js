@@ -20,20 +20,7 @@ export default function Navbar() {
                 <NavLinks>
                     Contact
                 </NavLinks>
-                <svg id="gooey">
-                    <filter>
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
-                        <feColorMatrix
-                        values="
-                        1 0 0 0 0
-                        0 1 0 0 0
-                        0 0 1 0 0 
-                        0 0 0 20 -10
-                        "
-                        
-                        />
-                    </filter>
-                </svg>
+                
 
             </div>
             <div >
