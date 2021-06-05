@@ -1,5 +1,5 @@
 //// Style
-import {CardContainer, ImageBall , TopLayer , Technologies, MidLayer} from './styles';
+import {CardContainer, ImageBall , TopLayer , Technologies, MidLayer, BottomLayer} from './styles';
 
 
 export default function ProjectCard({children, title, description, link, image1, image2, image3}) {
@@ -23,6 +23,9 @@ export default function ProjectCard({children, title, description, link, image1,
                     <p>Yoomy</p>
                 </div>
             </MidLayer>
+            <BottomLayer>
+                <img src="https://www.publicitarioscriativos.com/wp-content/uploads/2017/05/publicitarios-criativos-12.png"/>
+            </BottomLayer>
         </CardContainer>
     )
 }

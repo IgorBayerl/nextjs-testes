@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import { useSpring, animated } from "react-spring";
 import styled from 'styled-components';
 
 
@@ -19,8 +22,6 @@ export const CardContainer = styled.div`
   @media( max-width: 480px ) {
     margin: 1em;
   }
-
-  
 
 `;
 

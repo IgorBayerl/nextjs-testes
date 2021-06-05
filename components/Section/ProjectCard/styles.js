@@ -56,6 +56,9 @@ export const CardContainer = styled.div`
   &:hover ${MidLayer}::after {
     transform: rotate(150deg);
   }
+  /* &:hover ${BottomLayer} img{
+    transform: scale(1.3);
+  } */
 
   
 `;
@@ -110,6 +113,29 @@ export const Technologies = styled.div`
     object-fit: scale-down;
   }
 `;
+
+
+export const BottomLayer = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  overflow: hidden;
+  border-radius: 7px;
+  img{
+    min-height: 110%;
+    min-width: 110%;
+    max-width:160%;
+    max-height:160%;
+    /* margin-left: -3em; */
+    transition: all 0.3s;
+
+    object-fit: scale-down;
+  }
+`;
+
 
 
 
