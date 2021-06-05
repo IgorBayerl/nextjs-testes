@@ -56,11 +56,6 @@ export const CardContainer = styled.div`
   &:hover ${MidLayer}::after {
     transform: rotate(150deg);
   }
-  /* &:hover ${BottomLayer} img{
-    transform: scale(1.3);
-  } */
-
-  
 `;
 
 export const ImageBall = styled.div`
