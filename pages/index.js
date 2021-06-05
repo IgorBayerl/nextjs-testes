@@ -5,7 +5,8 @@ import BaseLayout from '../components/BaseLayout';
 import Card from '../components/Section/Card';
 import Section from '../components/Section/Section';
 import FirstPart from '../components/Content/FirstPart';
-import { useSpring, animated } from 'react-spring'
+import Projects from '../components/Content/Projects';
+import { useSpring, animated } from 'react-spring';
 
 const Box = props => {
 
@@ -72,9 +73,7 @@ function Content(){
       <FirstPart/>
       <Section>
         <Card>
-          <h2>
-            Projects
-          </h2>
+          <Projects/>
         </Card>
         <Card>
           <h2>

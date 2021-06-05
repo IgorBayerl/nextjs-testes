@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const FgContent = styled.div`
   
-  height: 300vh;
+  min-height: 300vh;
   z-index: 0;    
   position: absolute;
   pointer-events: none;
