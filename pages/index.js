@@ -81,6 +81,20 @@ function Content(){
           </h2>
         </Card>
       </Section>
+      <Section>
+        <Card>
+          <h2>
+            About
+          </h2>
+        </Card>
+      </Section>
+      <Section>
+        <Card>
+          <h2>
+            Contact
+          </h2>
+        </Card>
+      </Section>
       
     </>
   );
