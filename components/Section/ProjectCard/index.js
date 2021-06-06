@@ -6,11 +6,11 @@ import { useSpring, animated } from "react-spring";
 export default function ProjectCard({children, title, subTitle, isOpen, description, link, image1, image2, image3}) {
     const [openCard, setOpenCard] = useState(false);
     const imgProps = useSpring({
-        config: { duration: 250 },
+        config: { duration: 150 },
         top: openCard ? "-1em" : "3.5em"
     });
     const cardProps = useSpring({
-        config: { duration: 150 },
+        config: { duration: 200 },
         height: openCard ? "30em" : "8em",
         width: openCard ? "30em" : "20em",
         

@@ -3,7 +3,6 @@ import ProjectCard from '../../Section/ProjectCard';
 import { useState } from 'react';
 
 export default function Projects({arrayProjects}) {
-    const [openCard, setOpenCard] = useState(1);
 
     function handleClick(itemId){
         console.log(itemId)
