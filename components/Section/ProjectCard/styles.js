@@ -41,9 +41,29 @@ export const MidLayer = styled.div`
   
 `;
 
+export const BottomLayer = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  overflow: hidden;
+  border-radius: 7px;
+  img{
+    min-height: 110%;
+    min-width: 110%;
+    max-width:160%;
+    max-height:160%;
+    /* margin-left: -3em; */
+    transition: all 0.3s;
+    opacity: 0.7;
+
+    object-fit: cover;
+  }
+`;
 
 export const CardContainer = styled.div`
-  
   max-width: 80vw;
   width: 20em;
   height: 8em;
@@ -55,6 +75,9 @@ export const CardContainer = styled.div`
 
   &:hover ${MidLayer}::after {
     transform: rotate(150deg);
+  }
+  &:hover ${BottomLayer} img {
+    transform: scale(1.3);
   }
 `;
 
@@ -71,7 +94,7 @@ export const ImageBall = styled.div`
   img{
     height: 100%;
     width: 100%;
-    object-fit: scale-down;
+    object-fit: cover;
   }
   @media ( max-width: 530px ){
     right: 0.2em;
@@ -110,26 +133,7 @@ export const Technologies = styled.div`
 `;
 
 
-export const BottomLayer = styled.div`
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -2;
-  overflow: hidden;
-  border-radius: 7px;
-  img{
-    min-height: 110%;
-    min-width: 110%;
-    max-width:160%;
-    max-height:160%;
-    /* margin-left: -3em; */
-    transition: all 0.3s;
 
-    object-fit: scale-down;
-  }
-`;
 
 
 
