@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@react-three/drei": "^5.2.2",
+    "@react-three/drei": "^6.0.3",
     "@unform/core": "^2.1.6",
     "@unform/web": "^2.1.6",
     "bootstrap": "^4.6.0",
@@ -26,7 +26,8 @@
     "react-use-measure": "^2.0.4",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
-    "three": "0.112.1",
+    "three": "^0.129.0",
+    "three-subdivision-modifier": "^1.0.5",
     "yup": "^0.32.9"
   },
   "devDependencies": {

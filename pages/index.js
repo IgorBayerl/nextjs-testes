@@ -7,6 +7,12 @@ import Section from '../components/Section/Section';
 import FirstPart from '../components/Content/FirstPart';
 import Projects from '../components/Content/Projects';
 import { useSpring, animated } from 'react-spring';
+// import { OrbitControls, OrthographicCamera, Text, Shadow, useGLTF } from '@react-three/drei'
+
+const Model = () => {
+  const gltf = useGLTF('/glb/escrivaninha.glb')
+  return <primitive object={gltf.scene} dispose={null} />
+}
 
 const Box = props => {
 
@@ -70,7 +76,7 @@ function Content(){
 
   return(
     <>
-      <FirstPart/>
+      <FirstPart />
       <Section>
         <Card>
           <Projects/>
@@ -193,6 +199,9 @@ function Bg(){
       <ambientLight intensity={2} />
       <pointLight position={[40, 40, 40]} />
       <Suspense fallback={null}>
+        {/* <mesh position={[0, 0, 0]}>
+          <Model/>
+        </mesh> */}
         <Box position={[10, 0, 0]} />
         <Box position={[-10, 0, 0]} />
         <Box position={[-10, 10, 0]} />
@@ -210,7 +219,7 @@ const Boxes = () => {
   
   return (
     <BaseLayout 
-    content={ <Content/> }
+    content={ <Content /> }
     bg={ <Bg/> }
     />
   )

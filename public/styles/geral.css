@@ -60,10 +60,27 @@ body::-webkit-scrollbar-thumb {
 .pointerEventAuto{
   pointer-events: auto;
 }
+.pointerEventNone{
+  pointer-events: none;
+}
 
 .canvas{
   position: fixed !important;
   background-color: var(--color-primary);
   height: 100%;
   width: 100%;
+}
+
+.scrollSnapTypeProximity{
+  scroll-snap-type: x proximity;
+}
+.scrollSnapAlignTop{
+  scroll-snap-align: top;
+}
+.scrollSnapAlignCenter{
+  scroll-snap-align: center;
+}
+
+.colorDarkText{
+  color: rgb(39, 38, 38);
 }
