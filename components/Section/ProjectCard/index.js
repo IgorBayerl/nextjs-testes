@@ -10,7 +10,7 @@ export default function ProjectCard({children, title, subTitle, isOpen, descript
         top: openCard ? "-1em" : "3.5em"
     });
     const cardProps = useSpring({
-        config: { duration: 200 },
+        config: { duration: 150 },
         height: openCard ? "30em" : "8em",
         width: openCard ? "30em" : "20em",
         

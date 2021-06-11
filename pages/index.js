@@ -1,13 +1,20 @@
 import * as THREE from 'three';
 import React, { useRef, useState, Suspense , useLayoutEffect, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from 'react-three-fiber';
+// import { Canvas, useFrame, useThree } from 'react-three-fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import BaseLayout from '../components/BaseLayout';
 import Card from '../components/Section/Card';
 import Section from '../components/Section/Section';
 import FirstPart from '../components/Content/FirstPart';
 import Projects from '../components/Content/Projects';
 import { useSpring, animated } from 'react-spring';
-// import { OrbitControls, OrthographicCamera, Text, Shadow, useGLTF } from '@react-three/drei'
+
+// import dynamic from 'next/dynamic'
+
+// const MyComponent = dynamic(() => import('./MyComponent'), { ssr: false })
+// import { OrbitControls } from '@react-three/drei'
+
+import { OrbitControls, OrthographicCamera, Text, Shadow, useGLTF } from '@react-three/drei'
 
 const Model = () => {
   const gltf = useGLTF('/glb/escrivaninha.glb')
@@ -44,7 +51,7 @@ const Box = props => {
   })
 
   useFrame(() => {
-    (mesh.current.rotation.x = mesh.current.rotation.y += 0.00)
+    (mesh.current.rotation.x = mesh.current.rotation.y += 0.02)
   })
 
   return (
@@ -110,13 +117,15 @@ const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
 
   const updateMousePosition = ev => {
-    setMousePosition({ x: ev.clientX, y: ev.clientY });
+    setMousePosition({ x: (ev.clientX * window.innerWidth) / 100 /2, y: (ev.clientY * window.innerHeight) / 100 /2 });
   };
+
 
   useEffect(() => {
     window.addEventListener("mousemove", updateMousePosition);
-
-    return () => window.removeEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition)
+    };
   }, []);
 
   return mousePosition;
@@ -137,14 +146,17 @@ function Rig() {
     const mousePosition = useMousePosition();
 
     // return useFrame(() => {
-    //   camera.position.lerp(vec.set( mousePosition.x/100   , mousePosition.y / 100, camera.position.z), 0.2)
-    //   // camera.rotation.y = mousePosition.x / 500
-    //   // camera.rotation.y = Math.sin() 
+      // camera.position.lerp(vec.set( mousePosition.x/300   , mousePosition.y / 200, camera.position.z), 0.2)
+      // camera.rotation.y = mousePosition.x / 5000 - mousePosition.x/2/ 5000
+      // console.log(mousePosition);
+      
+      // camera.rotation.y = Math.sin() 
     // })
 
     return useFrame(() => {
       camera.position.lerp(vec.set( mouse.x * 20, mouse.y * 5, camera.position.z), 0.2)
       camera.rotation.y = mouse.x / 5
+      // console.log(mouse)
       // camera.rotation.y = Math.sin() 
     })
     return useFrame(() =>  camera.rotation.y = mouse.x / 5  )
@@ -199,15 +211,15 @@ function Bg(){
       <ambientLight intensity={2} />
       <pointLight position={[40, 40, 40]} />
       <Suspense fallback={null}>
-        {/* <mesh position={[0, 0, 0]}>
+        <mesh position={[-12, -27, 1]} scale={[10, 10, 10]}>
           <Model/>
-        </mesh> */}
-        <Box position={[10, 0, 0]} />
-        <Box position={[-10, 0, 0]} />
-        <Box position={[-10, 10, 0]} />
-        <Box position={[0, 10, 0]} />
-        <Box position={[0, -10, 0]} />
-        <Box position={[-10, -10, 0]} />
+        </mesh>
+        <Box position={[-25, -2, 2]} />
+        {/* <Box position={[-10, 0, 0]} /> */}
+        {/* <Box position={[-10, 10, 0]} /> */}
+        {/* <Box position={[0, 10, 0]} /> */}
+        {/* <Box position={[0, -10, 0]} /> */}
+        {/* <Box position={[-10, -10, 0]} /> */}
       </Suspense>
       <MoveOnScroll/>
       <Rig/>

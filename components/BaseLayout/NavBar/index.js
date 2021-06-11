@@ -25,10 +25,10 @@ export default function Navbar() {
             </div>
             <div >
                 
-                <NavLinks className="menuNavLinkSmall" href="https://www.linkedin.com/in/igorbayerl/">
+                <NavLinks className="menuNavLinkSmall" target="_blank"  href="https://www.linkedin.com/in/igorbayerl/">
                     LinkedIn
                 </NavLinks>
-                <NavLinks className="menuNavLinkSmall">
+                <NavLinks className="menuNavLinkSmall" target="_blank" href="https://github.com/IgorBayerl/">
                     GitHub
                 </NavLinks>
                 <NavLinks className="menuNavLinkSmall" href="mailto:bayerl.igor@gmail.com">
