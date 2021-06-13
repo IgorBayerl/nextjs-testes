@@ -7,7 +7,7 @@ export default function BaseLayout({children, content, bg}) {
     <>
       
       <BackgroundCanvas>
-      {bg}
+        {bg}
       </BackgroundCanvas >
       <ForgroundContent>
         {content}

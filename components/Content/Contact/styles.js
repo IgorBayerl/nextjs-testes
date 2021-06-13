@@ -106,3 +106,40 @@ export const BgTextSection = styled.div`
     opacity: 0.2;
   }
 `;
+
+export const ContactContainer = styled.div`
+  /* background-color: red; */
+  height: 100%;
+
+  form{
+    /* background-color: blue; */
+    margin-bottom: 40px;
+    div{
+      display: flex;
+      flex-direction: column;
+
+      input{
+        background-color: rgba(0,0,0,0.2);
+        border: none;
+        margin-bottom: 20px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        transition: all 0.3s;
+
+        width: fit-content;
+        :focus{
+          outline: none;
+          width: 100%;
+        }
+      }
+    }
+    button{
+      padding-left: 20px;
+      padding-right: 20px;
+      width: fit-content;
+    }
+  }
+`;

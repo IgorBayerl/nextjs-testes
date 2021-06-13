@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import React, { useRef, useState, Suspense , useEffect } from 'react';
-// import { Canvas, useFrame, useThree } from 'react-three-fiber';
+import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from '@react-three/postprocessing'
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import BaseLayout from '../components/BaseLayout';
 import Card from '../components/Section/Card';
@@ -21,7 +21,7 @@ import { OrbitControls, OrthographicCamera, Text, Shadow, useGLTF } from '@react
 
 
 const Model = () => {
-  const deskModel = ('./glb/DeskWithRoom.glb')
+  const deskModel = ('./glb/EscrivaninhaV3.glb')
 
 
   const gltf = useGLTF(deskModel)
@@ -118,9 +118,8 @@ const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
 
   const updateMousePosition = ev => {
-    setMousePosition({ x: (ev.clientX * window.innerWidth) / 100 /2, y: (ev.clientY * window.innerHeight) / 100 /2 });
+    setMousePosition({ x: ((ev.clientX * window.innerWidth /2)-(window.innerWidth /2)) / 200 /2, y: (ev.clientY * window.innerHeight) / 100 /2 });
   };
-
 
   useEffect(() => {
     window.addEventListener("mousemove", updateMousePosition);
@@ -134,12 +133,9 @@ const useMousePosition = () => {
 
 function Rig() {
 
-  
-
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     return (<></>)
   }else{
-
 
     const { camera, mouse } = useThree()
     const vec = new THREE.Vector3()
@@ -147,18 +143,12 @@ function Rig() {
     const mousePosition = useMousePosition();
 
     // return useFrame(() => {
-      // camera.position.lerp(vec.set( mousePosition.x/300   , mousePosition.y / 200, camera.position.z), 0.2)
-      // camera.rotation.y = mousePosition.x / 5000 - mousePosition.x/2/ 5000
-      // console.log(mousePosition);
-      
-      // camera.rotation.y = Math.sin() 
+    //   camera.rotation.y = mousePosition.x / 5000 - mousePosition.x/2/ 5000 + 50
     // })
 
     return useFrame(() => {
-      camera.position.lerp(vec.set( mouse.x * 20, mouse.y * 5, camera.position.z), 0.2)
+      camera.position.lerp(vec.set( mouse.x * 20, mouse.y, camera.position.z), 0.2)
       camera.rotation.y = mouse.x / 5
-      // console.log(mouse)
-      // camera.rotation.y = Math.sin() 
     })
     return useFrame(() =>  camera.rotation.y = mouse.x / 5  )
     // return useFrame(() =>  camera.rotation.y = rotation  )
@@ -194,17 +184,28 @@ function MoveOnScroll() {
   const vec = new THREE.Vector3()
   
   
-  const cameraPath = [
-    [ 0, 0 , 0 ],
-    [ 20, 10 , 10 ],
-    [ 0, 0 , 0 ],
-    [ 0, 0 , 0 ],
-  ]
-  
   return useFrame(() => camera.position.lerp(vec.set(1, 1, 1 + window.pageYOffset/30), 0.5) )
   
 }
 
+function Controls() {
+  const { gl, camera } = useThree()
+
+
+  const [cameraStatePosition, setCameraStatePosition] = useState(0);
+
+
+  const { spring } = useSpring({
+    spring: cameraStatePosition,
+    config: { mass: 5, tension:400, friction:50, precision: 0.0001}
+  })
+  
+  const scale = spring.to([0, 1] , [ [ 0 ,0 ,0 ], [ 0 ,25 ,5 ] ])
+
+  // camera.position = scale;
+
+  return <OrbitControls  target={[0,0,0]} args={[camera, gl.domElement]} />
+}
 
 
 function Bg(){
@@ -225,8 +226,9 @@ function Bg(){
   
   return(
     <Canvas className="canvas" camera={cameraConfig}>
-      <ambientLight intensity={2} />
-      <pointLight position={[40, 40, 40]} />
+      <ambientLight intensity={0.5} />
+      <pointLight position={[0, 10, 40]} intensity={0.5} />
+      {/* <pointLight position={[0, -29, 3]} /> */}
       <Suspense fallback={null}>
         <mesh position={[0, -29, 3]} scale={[10, 10, 10]}>
           <Model/>
@@ -240,6 +242,13 @@ function Bg(){
       </Suspense>
       <MoveOnScroll/>
       {/* <Rig/> */}
+      <EffectComposer>
+        <DepthOfField focusDistance={0} focalLength={0.1} bokehScale={1} height={480} />
+        <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
+        <Noise opacity={0.02} />
+        <Vignette eskil={false} offset={0.1} darkness={1} />
+      </EffectComposer>
+      {/* <Controls/> */}
     </Canvas>
   );
 }

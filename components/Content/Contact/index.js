@@ -4,7 +4,7 @@ import Section from '../../Section/Section'
 import Card from '../../Section/Card'
 import AnimateRowRail from "../../Section/AnimatedRowRail";
 //// Style
-import {GradientLine , Row , Bolinha, ContentText , BgTextSection} from './styles';
+import {GradientLine , Row , Bolinha, ContentText , BgTextSection , ContactContainer} from './styles';
 
 function BeforeContent(){
 
@@ -98,11 +98,23 @@ function MainContent(){
 
 function ContactForm(){
     return(
-        <>
-            <input className="pointerEventAuto" placeholder={"Name"}></input>
-            <input className="pointerEventAuto" placeholder={"Email"}></input>
-            <input className="pointerEventAuto" placeholder={"Bitcoin Wallet password"}></input>
-        </>
+        <ContactContainer>
+            <div>
+                <form >
+                    <div>
+                        <input name="Name" className="pointerEventAuto" placeholder={"Name"}></input>
+                        <input name="Email" className="pointerEventAuto" placeholder={"Email"}></input>
+                        <input name="Message" maxLength={1000} className="pointerEventAuto" placeholder={"Bitcoin Wallet password"}></input>
+                    </div>
+                    <button className="pointerEventAuto" type="submit">Submit</button>
+                </form>
+            </div>
+            <div>
+                
+            <GradientLine hue={200} width={6} />
+                <p>Other links</p>
+            </div>
+        </ContactContainer>
     );
 }
 
