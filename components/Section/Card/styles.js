@@ -84,6 +84,19 @@ export const Title = styled.h1`
   }
 `;
 
+export const SmallTitle = styled.h1`
+  font-size: 3em;
+  padding-left: 0;
+  /* pointer-events: auto; */
+  transition: all 0.3s;
+  @media( max-width: 850px ) {
+    font-size: 2em;
+  }
+  @media( max-width: 480px ) {
+    font-size: 2em;
+  }
+`;
+
 export const MainContentContainer = styled.h1`
   padding-left: 40px;
 `;

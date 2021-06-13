@@ -1,5 +1,5 @@
 //// Style
-import {CardContainer, CardContent , LeftArrowDownContainer , ArrowLine, RightContentContainer , Title , MainContentContainer} from './styles';
+import {CardContainer, SmallTitle, CardContent , LeftArrowDownContainer , ArrowLine, RightContentContainer , Title , MainContentContainer} from './styles';
 
 import AnimateRowRail from "../AnimatedRowRail";
 
@@ -13,6 +13,11 @@ export default function Card({children, title, bigTitle, mainContent, beforeCont
             </LeftArrowDownContainer>
             <RightContentContainer>
                 {beforeContent}
+                <AnimateRowRail
+                    trailArray={[
+                        <SmallTitle>{title}</SmallTitle>
+                    ]}
+                />
                 <AnimateRowRail
                     trailArray={[
                         <Title>{bigTitle}</Title>

@@ -5,12 +5,14 @@ import Navbar from './NavBar';
 export default function BaseLayout({children, content, bg}) {
   return (
     <>
+      
       <BackgroundCanvas>
       {bg}
       </BackgroundCanvas >
       <ForgroundContent>
-      {content}
+        {content}
       </ForgroundContent>
+
       <Navbar/>
     </>
   )

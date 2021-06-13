@@ -16,6 +16,18 @@ function BeforeContent(){
                     <GradientLine hue={43} width={4} />,
                     <Bolinha hue={127}  />,
                     <GradientLine hue={5} width={10} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
                 ]}
             />
             <AnimateRowRail
@@ -23,6 +35,15 @@ function BeforeContent(){
                     <GradientLine hue={190} width={22} />,
                     <GradientLine hue={240} width={1} />,
                     <GradientLine hue={82} width={6} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
                 ]}
             />
             <AnimateRowRail
@@ -31,6 +52,15 @@ function BeforeContent(){
                     <GradientLine hue={120} width={3} />,
                     <Bolinha hue={418}  />,
                     <GradientLine hue={162} width={15} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
                 ]}
             />
             <AnimateRowRail
@@ -41,6 +71,15 @@ function BeforeContent(){
                     <GradientLine hue={255} width={3} />,
                     <GradientLine hue={56} width={1} />,
                     <GradientLine hue={145} width={8} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
+                    <GradientLine hue={43} width={4} />,
+                    <Bolinha hue={127}  />,
+                    <GradientLine hue={5} width={10} />,
                 ]}
             />
         </>
@@ -57,7 +96,17 @@ function MainContent(){
     );
 }
 
-export default function FirstPart() {
+function ContactForm(){
+    return(
+        <>
+            <input className="pointerEventAuto" placeholder={"Name"}></input>
+            <input className="pointerEventAuto" placeholder={"Email"}></input>
+            <input className="pointerEventAuto" placeholder={"Bitcoin Wallet password"}></input>
+        </>
+    );
+}
+
+export default function Contact() {
 
     return (
         <Section>
@@ -69,11 +118,14 @@ export default function FirstPart() {
                 </p>
             </BgTextSection> */}
             <Card
-            bigTitle={"Igor Bayerl"}
-            mainContent={<MainContent/>}
-            beforeContent={<BeforeContent/>}
-            afterContent={<BeforeContent/>}
-            />
+            title={"Contact"}
+            // bigTitle={"Igor Bayerl"}
+            // mainContent={<MainContent/>}
+            // beforeContent={<BeforeContent/>}
+            // afterContent={<BeforeContent/>}
+            >
+                <ContactForm/>
+            </Card>
         </Section>
     )
 }

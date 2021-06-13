@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import React, { useRef, useState, Suspense , useLayoutEffect, useEffect } from 'react';
+import React, { useRef, useState, Suspense , useEffect } from 'react';
 // import { Canvas, useFrame, useThree } from 'react-three-fiber';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import BaseLayout from '../components/BaseLayout';
@@ -7,7 +7,10 @@ import Card from '../components/Section/Card';
 import Section from '../components/Section/Section';
 import FirstPart from '../components/Content/FirstPart';
 import Projects from '../components/Content/Projects';
-import { useSpring, animated } from 'react-spring';
+import Contact from '../components/Content/Contact';
+import { useSpring } from 'react-spring';
+import { a } from '@react-spring/three';
+import { GradientLine } from '../components/Section/NewProjectCard/styles';
 
 // import dynamic from 'next/dynamic'
 
@@ -16,60 +19,58 @@ import { useSpring, animated } from 'react-spring';
 
 import { OrbitControls, OrthographicCamera, Text, Shadow, useGLTF } from '@react-three/drei'
 
+
 const Model = () => {
-  const gltf = useGLTF('/glb/escrivaninha.glb')
+  const deskModel = ('./glb/DeskWithRoom.glb')
+
+
+  const gltf = useGLTF(deskModel)
   return <primitive object={gltf.scene} dispose={null} />
 }
 
 const Box = props => {
 
-  
-  // api.start({ opacity: toggle ? 1 : 0 })
-  // function DivAnimatedSpringTest(){
-    
-    
-
-  //   return (
-  //     <animated.div className="pointerEventAuto" style={styles}>
-  //         i will fade
-  //         <button onClick={() => setToggle(0)} className="pointerEventAuto">Press</button>    
-  //     </animated.div>
-  //   );
-  // }
-
   const mesh = useRef()
 
   const [hovered, setHover] = useState(false)
-  const [active, setActive] = useState(false)
-  // const [toggle, setToggle] = useState(false);
+  const [active, setActive] = useState(0)
 
-  const { scale } = useSpring({
-    scale: active ? [10, 10, 10] : [20, 20, 20],
-    form: {
-      scale:[20, 20, 20],
-    }
+  const { spring } = useSpring({
+    spring: active,
+    config: { mass: 5, tension:400, friction:50, precision: 0.0001}
   })
+  
+
+  const scale = spring.to([0, 1] , [ 6, 4])
+  const color = spring.to([0, 1] , [ '#2b6c76', '#de2424'])
 
   useFrame(() => {
     (mesh.current.rotation.x = mesh.current.rotation.y += 0.02)
   })
 
+  useEffect(() => {
+    setActive(1)
+    console.log(scale)
+  }, [])
+
   return (
-    <mesh
-      // as={animated.mesh}
+    <a.mesh
       {...props}
       ref={mesh}
-      scale={active ? [ 6, 6, 6 ] : [ 5, 5, 5 ]}
-      onClick={e => setActive(!active)}
+
+      scale-x={ scale }
+      scale-y={ scale }
+      scale-z={ scale }
+      onClick={e => setActive(Number(!active))}
       onPointerOver={e => setHover(true)}
       onPointerOut={e => setHover(false)}
     >
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshStandardMaterial
+      <a.meshStandardMaterial
         attach="material"
-        color={hovered ? '#2b6c76' : '#de2424'}
+        color={color}
       />
-    </mesh>
+    </a.mesh>
   )
 }
 
@@ -85,29 +86,29 @@ function Content(){
     <>
       <FirstPart />
       <Section>
-        <Card>
+        <Card
+          title={"Projects"}
+        >
           <Projects/>
         </Card>
-        <Card>
+        <Card
+          title={"Skills"}
+        >
           <h2>
             Skills
           </h2>
         </Card>
       </Section>
       <Section>
-        <Card>
+        <Card
+          title={"About"}
+        >
           <h2>
             About
           </h2>
         </Card>
       </Section>
-      <Section>
-        <Card>
-          <h2>
-            Contact
-          </h2>
-        </Card>
-      </Section>
+      <Contact/>
       
     </>
   );
@@ -189,10 +190,18 @@ function MoveOnScroll() {
 
   // useLayoutEffect(() => console.log(window.pageYOffset), [])
   
-  const { camera, mouse } = useThree()
+  const { camera } = useThree()
   const vec = new THREE.Vector3()
+  
+  
+  const cameraPath = [
+    [ 0, 0 , 0 ],
+    [ 20, 10 , 10 ],
+    [ 0, 0 , 0 ],
+    [ 0, 0 , 0 ],
+  ]
+  
   return useFrame(() => camera.position.lerp(vec.set(1, 1, 1 + window.pageYOffset/30), 0.5) )
-
   
 }
 
@@ -200,9 +209,17 @@ function MoveOnScroll() {
 
 function Bg(){
 
+  // console.log(document.documentElement.scrollHeight)
+
+  const cameraPath = [
+    [ 0, 0 , 0 ],
+    [ 5, 0 , 50 ],
+    [ 0, 0 , 0 ],
+    [ 0, 0 , 0 ],
+  ]
 
   const cameraConfig = { 
-    position: [0, 0, 0 ],
+    position: cameraPath[0],
     
   }
   
@@ -211,18 +228,18 @@ function Bg(){
       <ambientLight intensity={2} />
       <pointLight position={[40, 40, 40]} />
       <Suspense fallback={null}>
-        <mesh position={[-12, -27, 1]} scale={[10, 10, 10]}>
+        <mesh position={[0, -29, 3]} scale={[10, 10, 10]}>
           <Model/>
         </mesh>
-        <Box position={[-25, -2, 2]} />
-        {/* <Box position={[-10, 0, 0]} /> */}
+        <Box position={[25, -2, 2]} />
+        {/* <Box position={[0, 0, 0]} /> */}
         {/* <Box position={[-10, 10, 0]} /> */}
         {/* <Box position={[0, 10, 0]} /> */}
         {/* <Box position={[0, -10, 0]} /> */}
         {/* <Box position={[-10, -10, 0]} /> */}
       </Suspense>
       <MoveOnScroll/>
-      <Rig/>
+      {/* <Rig/> */}
     </Canvas>
   );
 }
