@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 
 
@@ -13,6 +13,25 @@ export const SectionContainer = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
+
+const breatheAnimation = (width) => keyframes`
+  0%   { 
+    width: ${width + `em`}; 
+  }
+  30%  { 
+    width: ${width + `em`}; 
+  }
+  40%  { 
+    width: ${width + 1 + `em`}; 
+  }
+  80% { 
+    width: ${width + 1 + `em`}; 
+  }
+  100% { 
+    width: ${width + `em`};   
+  }
+`
+
 
 
 export const GradientLine = styled.div`
@@ -29,9 +48,11 @@ export const GradientLine = styled.div`
   margin-bottom: 5px;
   margin-top: 5px;
   border-radius: 1px;
-  :hover{
-    width: ${props => props.width + 1 + `em`};
-  }
+  animation-name: ${props => breatheAnimation(props.width)};
+  animation-duration: ${props => props.time + `s`};
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  
   
   @media (min-width: 481px ) and ( max-width: 850px ){
     height: 1em;
@@ -48,8 +69,12 @@ export const GradientLine = styled.div`
     margin-bottom: 0.1rem;
     margin-top: 0.1rem;
   }
+
+  
   
 `;
+
+
 
 export const Bolinha = styled.div`
   pointer-events: auto;

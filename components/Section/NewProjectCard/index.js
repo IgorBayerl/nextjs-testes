@@ -21,7 +21,7 @@ export default function NewProjectCard({children, title, subTitle, isOpen, descr
                     </ul>
                 </ActionsMenu> */}
                 <TopLayer>
-                    <GradientLine hue={10} width={7} />
+                    <GradientLine time={4} hue={10} width={7} />
                     
                     {/* <ImageBall as={animated.div} >
                         <img src={image1}/>
