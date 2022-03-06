@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import React, { useRef, useState, Suspense , useEffect } from 'react';
+import React, { useRef, useState ,useCallback, Suspense , useEffect, useContext } from 'react';
 import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from '@react-three/postprocessing'
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import BaseLayout from '../components/BaseLayout';
@@ -10,14 +10,12 @@ import Projects from '../components/Content/Projects';
 import Contact from '../components/Content/Contact';
 import { useSpring } from 'react-spring';
 import { a } from '@react-spring/three';
-import { GradientLine } from '../components/Section/NewProjectCard/styles';
+import GlobalStates, {Context} from '../components/globalStates';
 
-// import dynamic from 'next/dynamic'
 
-// const MyComponent = dynamic(() => import('./MyComponent'), { ssr: false })
-// import { OrbitControls } from '@react-three/drei'
 
 import { OrbitControls, OrthographicCamera, Text, Shadow, useGLTF } from '@react-three/drei'
+import { ref } from 'yup';
 
 
 const Model = () => {
@@ -77,42 +75,110 @@ const Box = props => {
 
 
 
-
 function Content(){
+  const trigger1Ref = useRef();
+  const trigger2Ref = useRef();
+  const trigger3Ref = useRef();
+  const trigger4Ref = useRef();
 
-  
+  const useOnScreen = useCallback((ref, rootMargin = "0px") => {
+    try {
+      // State and setter for storing whether element is visible
+      const [isIntersecting, setIntersecting] = useState(false);
+      useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            // Update our state when observer callback fires
+            setIntersecting(entry.isIntersecting);
+          },
+          {
+            rootMargin,
+          }
+        );
+        if (ref.current) {
+          observer.observe(ref.current);
+        }
+        return () => {
+          observer.unobserve(ref.current);
+        };
+      }, []); // Empty array ensures that effect is only run on mount and unmount
+      return isIntersecting;
+    } catch (error) {
+      console.log(error)
+      return false;
+    }
+  }, []);
+
+
+
+  const onScreen1 = useOnScreen(trigger1Ref, "-80px");
+  const onScreen2 = useOnScreen(trigger2Ref, "-80px");
+  const onScreen3 = useOnScreen(trigger3Ref);
+  const onScreen4 = useOnScreen(trigger4Ref);
+
+  const lookingSection = useCallback(() => {
+    if(onScreen1){
+      return 1
+    }
+    else if(onScreen2 && !onScreen1){
+      return 2
+    }
+    else if(onScreen3 && !onScreen2){
+      return 3
+    }
+    else if(onScreen4 && !onScreen3){
+      return 4
+    }
+    else{
+      return 0
+    }
+
+    
+  }, [onScreen1, onScreen2, onScreen3, onScreen4])()
+
+  console.log(lookingSection)
 
   return(
     <>
-      <FirstPart />
-      <Section>
-        <Card
-          title={"Projects"}
-        >
-          <Projects/>
-        </Card>
-        <Card
-          title={"Skills"}
-        >
-          <h2>
-            Skills
-          </h2>
-        </Card>
-      </Section>
-      <Section>
-        <Card
-          title={"About"}
-        >
-          <h2>
-            About
-          </h2>
-        </Card>
-      </Section>
-      <Contact/>
-      
+      <div style={{margin: 0, padding: 0}} ref={trigger1Ref}>
+        <FirstPart />
+      </div>
+      <div style={{margin: 0, padding: 0}} ref={trigger2Ref}>
+        <Section >
+          <Card
+            title={"Projects"}
+          >
+            <Projects />
+          </Card>
+          <Card
+          
+            title={"Skills"}
+          >
+            <h2 >
+              AAAA
+            </h2>
+          </Card>
+        </Section>
+      </div>
+      <div style={{margin: 0, padding: 0}} ref={trigger3Ref}>
+        <Section >
+          <Card
+            title={"About"}
+          >
+            <h2>
+              About
+            </h2>
+          </Card>
+        </Section>
+      </div>
+      <div style={{margin: 0, padding: 0}} ref={trigger4Ref} > 
+        <Contact />
+      </div>
     </>
   );
 }
+
+
 
 const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
@@ -175,18 +241,8 @@ function Rig() {
   
 // }
 
+// usar spline no lugar do atual 3d
 
-function MoveOnScroll() {
-
-  // useLayoutEffect(() => console.log(window.pageYOffset), [])
-  
-  const { camera } = useThree()
-  const vec = new THREE.Vector3()
-  
-  
-  return useFrame(() => camera.position.lerp(vec.set(1, 1, 1 + window.pageYOffset/30), 0.5) )
-  
-}
 
 function Controls() {
   const { gl, camera } = useThree()
@@ -208,22 +264,34 @@ function Controls() {
 }
 
 
+function MoveOnScroll(  ) {
+
+  // const [globalState, setGlobalState] = useContext(Context);
+
+  // console.log(globalState)
+
+  // useLayoutEffect(() => console.log(window.pageYOffset), [])
+  
+  const { camera } = useThree()
+  const vec = new THREE.Vector3()
+  
+  
+  return useFrame(() => camera.position.lerp(vec.set(1, 1, 1 + window.pageYOffset/30), 0.5) )
+  
+}
+
 function Bg(){
 
-  // console.log(document.documentElement.scrollHeight)
+  
 
-  const cameraPath = [
-    [ 0, 0 , 0 ],
-    [ 5, 0 , 50 ],
-    [ 0, 0 , 0 ],
-    [ 0, 0 , 0 ],
-  ]
+  const deg2rad = degrees => degrees * (Math.PI / 180);
+  
 
   const cameraConfig = { 
-    position: cameraPath[0],
-    
+    position: [ 0, 0 , 0 ],
   }
-  
+
+
   return(
     <Canvas className="canvas" camera={cameraConfig}>
       <ambientLight intensity={0.5} />
@@ -234,11 +302,6 @@ function Bg(){
           <Model/>
         </mesh>
         <Box position={[25, -2, 2]} />
-        {/* <Box position={[0, 0, 0]} /> */}
-        {/* <Box position={[-10, 10, 0]} /> */}
-        {/* <Box position={[0, 10, 0]} /> */}
-        {/* <Box position={[0, -10, 0]} /> */}
-        {/* <Box position={[-10, -10, 0]} /> */}
       </Suspense>
       <MoveOnScroll/>
       {/* <Rig/> */}
@@ -255,11 +318,14 @@ function Bg(){
 const Boxes = () => {
 
   
+
   return (
-    <BaseLayout 
-    content={ <Content /> }
-    bg={ <Bg/> }
-    />
+    <GlobalStates>
+      <BaseLayout 
+      content={ <Content /> }
+      bg={ <Bg/> }
+      />
+    </GlobalStates>
   )
 }
 

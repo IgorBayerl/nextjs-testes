@@ -1,12 +1,14 @@
 //// Style
 import {SectionContainer, CardContent } from './styles';
+import React, { useRef } from 'react';
 
 
-export default function Section({children}) {
+function Section({children }) {
     return (
-        <SectionContainer>
+        <SectionContainer >
             {children}
         </SectionContainer>
     )
 }
+export default Section;
   

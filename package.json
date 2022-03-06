@@ -22,6 +22,7 @@
     "react-dom": "17.0.1",
     "react-icons": "^4.2.0",
     "react-input-mask": "^2.0.4",
+    "react-scrollmagic": "^2.3.0",
     "react-slick": "^0.28.1",
     "react-spring": "^9.2.1",
     "react-toastify": "^7.0.3",
@@ -30,6 +31,7 @@
     "styled-components": "^5.2.1",
     "three": "^0.129.0",
     "three-subdivision-modifier": "^1.0.5",
+    "use-resize-observer": "^8.0.0",
     "vanilla-tilt": "^1.7.0",
     "yup": "^0.32.9"
   },

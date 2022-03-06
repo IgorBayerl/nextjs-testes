@@ -57,10 +57,10 @@ function MainContent(){
     );
 }
 
-export default function FirstPart() {
+export default function FirstPart({id}) {
 
     return (
-        <Section>
+        <Section id={id}>
             {/* <BgTextSection >
                 <p className={"bg-bold-font"}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam facilisis at enim nec aliquam. Curabitur finibus lectus congue ipsum congue, eu laoreet mauris malesuada. Praesent urna erat, sollicitudin vitae pulvinar bibendum, luctus eget turpis. Mauris at lorem ut urna faucibus faucibus. Nulla facilisi. Fusce quis pharetra urna, ac lacinia ipsum. Ut porta porta aliquet. Curabitur pharetra ex bibendum, lacinia metus non, eleifend enim. Proin dolor libero, ullamcorper ac efficitur ac, posuere in lacus. Nam tincidunt congue neque vitae finibus. Integer ac leo non massa accumsan consectetur et ac sem. Pellentesque eu venenatis nisi. In rhoncus urna ac dolor hendrerit vestibulum.
@@ -71,8 +71,8 @@ export default function FirstPart() {
             <Card
             bigTitle={"Igor Bayerl"}
             mainContent={<MainContent/>}
-            beforeContent={<BeforeContent/>}
-            afterContent={<BeforeContent/>}
+            // beforeContent={<BeforeContent/>}
+            // afterContent={<BeforeContent/>}
             />
         </Section>
     )
